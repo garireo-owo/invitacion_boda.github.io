@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Boda - Grecia & Héctor</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Playfair Display', serif;
+      background: url('fondo_tapiz.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .invitacion {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      padding: 2rem 0;
+      border: 3px solid black;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Ornamentos en esquinas */
+    .esquina {    
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      z-index: 10;
+    }
+    .esquina.izq-sup { top: -110px; left: -110px; }
+    .esquina.der-sup { top: -110px; right: -110px; transform: scaleX(-1); }
+    .esquina.izq-inf { bottom: -110px; left: -110px; transform: scaleY(-1); }
+    .esquina.der-inf { bottom: -110px; right: -110px; transform: scale(-1, -1); }
+
+    /* Encabezados */
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      color: #000;
+      margin: 0.5rem 0;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #4f7c55;
+      margin-top: 0;
+    }
+    h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #000000;
+      margin: 0.5rem 0;
+    }
+      
+    h4 {
+      font-size:1.5rem;
+      font-style: italic;
+      color: #ffffff;
+      margin-top: 0;
+    }
+    p {
+      font-size: 1rem;
+      margin: 1rem 0;
+      color: #ffffff;
+    }
+ /* Textos comunes más modernos */
+  p, h4, .iglesia-texto, .qr p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    font-style: normal;
+    line-height: 1.5;
+  }
+
+    .ornamento {
+      width: 300px;
+      margin: 1rem auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .mensaje {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #fff;
+      margin: 2rem 0;
+    }
+
+    /* Recuadros generales */
+    .seccion {
+      background: #A9B6A1;
+      padding: 2rem;
+      margin: 2rem 0;
+      width: 100%;
+      color: #fff;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 250px;
+    }
+
+    .seccion.dividido { display: flex; }
+    .mitad { flex: 1; padding: 1rem; }
+
+    /* Fotos sin recuadro */
+    .foto-novios img,
+.foto-novios-2 img {
+  width: 100%;
+  height: auto;
+  border-radius: 0; /* opcional: sin bordes redondeados, más limpio con los marcos */
+  margin: 0;
+  display: block;
+  box-shadow: none; /* elimina sombra si se desea que coincida con los bordes */
+}
+
+.foto-novios,
+.foto-novios-2 {
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden; /* evita que sobresalga algo de la imagen */
+}
+
+
+    /* Evento centrado */
+    .evento p {
+      margin: 0.5rem 0;
+      font-size: 1.8rem;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+     /* Contador */
+  .contador-box {
+    margin: 3rem 0 6rem;
+    background: none;
+    color: black;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contador {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
+  }
+
+  .contador div {
+    background: #4f7c55;
+    color: #fff;
+    padding: 30px 30px;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  }
+
+  .contador-label {
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+  }
+
+  /* Ornamento del contador agrandado y superpuesto */
+  .contador-box img.ornamento {
+    width: 450px; /* más grande */
+    margin-top: -40px; /* se sube un poco */
+    position: relative;
+    z-index: 3;
+  }
+
+  /* Ajuste responsivo */
+  @media (max-width: 600px) {
+    .contador-box img.ornamento {
+      width: 300px;
+      margin-top: -40px;
+    }}
+    /* Iglesia */
+    .iglesia-texto {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+    }
+    /* Mapa centrado */
+    .mapa { background: none; }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    /* QR */
+    .qr img { width: 200px; }
+    .qr p { font-size: 1.2rem; color: white; font-weight: bold; }
+
+    /* Música */
+    .musica {
+      margin: 2rem 0;
+      text-align: center;
+      position: relative;
+    }
+    .musica p { font-style: italic; color: #fff; }
+  
+    /* Ornamentos laterales */
+/* Ornamentos laterales */
+.ornamento-lateral {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px; /* ajusta el tamaño según tu imagen */
+  z-index: 4;
+}
+
+/* Lado izquierdo: reflejado */
+.ornamento-izq {
+  left: 0;
+  transform: translateY(-50%) scaleX(-1); /* efecto espejo */
+}
+
+/* Lado derecho: normal */
+.ornamento-der {
+  right: 0;
+}
+    footer {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #444;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      h1 { font-size: 3rem; }
+      h3 { font-size: 2.2rem; }
+      .contador div { font-size: 1.2rem; min-width: 60px; }
+      .seccion.dividido { flex-direction: column; }
+      .musica .ornamento-lateral { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="invitacion">
+
+    <!-- Esquinas -->
+    <img src="esquina.png" class="esquina izq-sup" alt="">
+    <img src="esquina.png" class="esquina der-sup" alt="">
+    <img src="esquina.png" class="esquina izq-inf" alt="">
+    <img src="esquina.png" class="esquina der-inf" alt="">
+
+    <!-- Ornamento superior -->
+    <img src="ornamento_superior.png" class="ornamento" alt="ornamento superior">
+
+    <!-- Encabezado -->
+    <h1>Grecia</h1>
+    <h3>&</h3>
+    <h1>Héctor</h1>
+    <h2>¡Unimos nuestras vidas en matrimonio!</h2>
+
+    <!-- Palabras profundas -->
+    <div class="seccion dividido">
+      <div class="mitad">
+        <p class="mensaje">
+          El amor es el puente que une nuestras almas,<br>
+          y queremos que seas parte de este momento único.<br>
+          Juntos celebraremos no solo un día,<br>
+          sino el inicio de toda una vida.
+        </p>
+      </div>
+      <div class="mitad">
+        <img src="ornamenta_mensaje.jpg" alt="ornamenta" style="width:100%; max-width:250px;">
+      </div>
+    </div>
+
+    <!-- Foto de novios -->
+    <div class="foto-novios">
+      <img src="foto-novios.jpg" alt="Foto de Grecia y Héctor">
+    </div>
+
+    <!-- Evento -->
+    <div class="seccion evento">
+      <p>Acompáñanos el día<br>SÁBADO 22 DE NOVIEMBRE DE 2025</p>
+    </div>
+
+    <!-- Contador -->
+    <div class="contador-box">
+      <div class="faltan"><h1>Faltan...</h1></div>
+      <div class="contador">
+        <div><span id="dias">0</span><span class="contador-label">Días</span></div>
+        <div><span id="horas">0</span><span class="contador-label">Horas</span></div>
+        <div><span id="minutos">0</span><span class="contador-label">Min</span></div>
+        <div><span id="segundos">0</span><span class="contador-label">Seg</span></div>
+      </div>
+      <img src="ornamento_contador.png" class="ornamento" alt="ornamento contador">
+    </div>
+
+    <!-- Iglesia -->
+    <div class="seccion dividido">
+      <div class="mitad">
+        <img src="iglesia.jpg" alt="Iglesia" style="width:100%; border-radius:10px;">
+      </div>
+      <div class="mitad iglesia-texto">
+        <p>Celebraremos nuestra unión ante Dios y la Iglesia,<br>
+        compartiendo este sacramento sagrado con quienes más amamos.<br>
+       Calle Gral. J. Álvarez y A. #18, Col. Ejército Mexicano. 06:00 p. m.
+      </div>
+    </div>
+
+    <!-- Mapa Recepción -->
+<div class="mapa">
+  <h2>
+    Al finalizar la ceremonia,<br>
+    agradecemos tu presencia en la recepción donde compartiremos una cena,<br>
+    brindis y una noche inolvidable de celebración.
+  </h2>
+
+  <h4>
+    Villamar 1656, Leandro Valle.<br>
+    Salón de eventos "El Farallón", 08:00 p.m.
+  </h4>
+
+  <iframe 
+    src="https://www.google.com/maps?q=Villamar+1656,+Leandro+Valle,+60137+Uruapan,+Michoacán&output=embed" 
+    width="100%" 
+    height="400" 
+    style="border:0; border-radius:10px;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div>
+
+
+    <!-- QR -->
+<div class="seccion dividido qr">
+  <div class="mitad">
+    <p>Escanea este código para subir y compartir tus fotos del gran día</p>
+  </div>
+  <div class="mitad">
+    <img src="qr.png" alt="Código QR">
+  </div>
+</div>
+
+
+    <!-- Segunda foto novios -->
+    <div class="foto-novios-2">
+      <img src="foto-novios-2.jpg" alt="Foto secundaria Grecia y Héctor">
+    </div>
+
+ <div class="seccion musica">
+  <img src="ornamento_lateral.jpg" class="ornamento-lateral ornamento-izq" alt="ornamento izquierdo">
+
+  <audio id="musicaFondo" controls loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <img src="ornamento_lateral.jpg" class="ornamento-lateral ornamento-der" alt="ornamento derecho">
+</div>
+
+<script>
+  // Inicia la música cuando el usuario da clic en cualquier parte
+  document.addEventListener("click", function() {
+    const audio = document.getElementById("musicaFondo");
+    if (audio.paused) {
+      audio.play();
+    }
+  }, { once: true }); // Solo la primera vez
+
+  // El usuario podrá pausar o reproducir con los controles sin que se reinicie
+</script>
+
+    <!-- Ornamento inferior -->
+    <img src="ornamento_inferior.png" class="ornamento" alt="ornamento inferior">
+    
+
+
+<br> </br>
+    <!-- Despedida -->
+    <footer>
+      <h2>"El amor es infinito pero el espacio es limitado,<br> 
+      te agradecemos asistir según el número de pases<br> destinados para ti"</p><br> </br><br> </br>
+      Con todo nuestro cariño,<br> Grecia & Héctor
+    </footer>
+  </div>
+<br> </br><br> </br>
+  <script>
+    function actualizarContador() {
+      const fechaBoda = new Date("2025-11-22T18:00:00");
+      const ahora = new Date();
+      const diff = fechaBoda - ahora;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("dias").innerText = dias;
+      document.getElementById("horas").innerText = horas;
+      document.getElementById("minutos").innerText = minutos;
+      document.getElementById("segundos").innerText = segundos;
+    }
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
+  </script>
+  <script>
+  document.addEventListener("click", function() {
+    const audio = document.getElementById("musicaFondo");
+    if (audio.paused) {
+      audio.play();
+    }
+  });
+</script>
+<audio id="musicaFondo" loop>
+  <source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
